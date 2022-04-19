@@ -1,7 +1,11 @@
 import express, { Application } from 'express';
-import { ApiPath } from '../interfaces/interfaces';
 import cors from 'cors';
+// Interfaces
+import { ApiPath } from '../interfaces/interfaces';
+// Routes
 import { router as authRouter } from '../routes/auth.route';
+// DB
+import dbConnection from '../db/config.database';
 
 class Server {
 	private app: Application;
@@ -15,13 +19,21 @@ class Server {
 			auth: '/api/auth'
 		}
 
-		//TODO: Connect to database
+		this.dbConnect();
 
 		this.middlewares();
 		this.routes();
 	}
 
-	//TODO: dbConnection method
+	async dbConnect() {
+		try {
+			await dbConnection()
+			console.log( `${ '[SERVER.DATABASE]'.green }: Database ONLINE` );
+
+		} catch ( err ) {
+			console.log( `${ '[SERVER.DATABASE]'.red }: ${ err }` );
+		}
+	}
 
 	middlewares() {
 		this.app.use( cors() );
