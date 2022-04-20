@@ -20,4 +20,6 @@ router.post( '/register',[
 	validateFields
 ] , authRegister );
 
-router.post( '/login', authLogin );
+router.post( '/login', [
+
+], authLogin );

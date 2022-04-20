@@ -13,8 +13,8 @@ class Server {
 	private apiPaths: ApiPath;
 
 	constructor() {
-		this.port = process.env.PORT || '3001';
 		this.app = express();
+		this.port = process.env.PORT || '3001';
 		this.apiPaths = {
 			auth: '/api/auth'
 		}

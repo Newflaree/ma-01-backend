@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import bcrypt from 'bcryptjs';
 // Models
 import User from '../../models/user.model';
-import {generateJWT} from "../../helpers/jwt/generate-jwt.helper";
+// JWT
+import { generateJWT } from "../../helpers/jwt/generate-jwt.helper";
 
 export const authRegister = async( req: Request, res: Response ) => {
 	const { name, email, password } = req.body;
