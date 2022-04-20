@@ -1,8 +1,8 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 // Interfaces
-import { ApiPath } from '../interfaces/interfaces';
 // Routes
+import { ApiPath } from '../interfaces/interfaces';
 import { router as authRouter } from '../routes/auth.route';
 // DB
 import dbConnection from '../db/config.database';
