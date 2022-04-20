@@ -19,8 +19,10 @@ class Server {
 			auth: '/api/auth'
 		}
 
+		// DB Connectcion
 		this.dbConnect();
 
+		// Init Methods
 		this.middlewares();
 		this.routes();
 	}
@@ -31,7 +33,7 @@ class Server {
 			console.log( `${ '[SERVER.DATABASE]'.green }: Database ONLINE` );
 
 		} catch ( err ) {
-			console.log( `${ '[SERVER.DATABASE]'.red }: ${ err }` );
+			console.log( `${ '[SERVER.DATABASE]'.red }: Error details - ${ err }` );
 		}
 	}
 
