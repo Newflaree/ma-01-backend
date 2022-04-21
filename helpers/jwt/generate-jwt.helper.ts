@@ -9,7 +9,7 @@ export const generateJWT = ( uid = '' ) => {
 		}, ( err , token ) => {
 			if ( err ) {
 				console.log( `${ '[JWT.HELPER]'.red }: Error details - ${ err }` );
-				reject( 'The token could not be generated' );
+				reject( 'The token could not be generated.' );
 			} else {
 				resolve( token );
 			}

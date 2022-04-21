@@ -9,31 +9,31 @@ export const authLogin = async( req: Request, res: Response ) => {
 	const { email, password } = req.body;
 
 	try {
+		// Check if email exists
 		const user = await User.findOne({ email });
 
-		// Check if email exists
 		if ( !user ) {
 			return res.status( 401 ).json({
 				ok: false,
-				msg: 'Incorrect email or password'
+				msg: 'Incorrect email or password.'
 			});
 		}
 
-    // Check if the user is active
+    // Check if user is active
 		if ( !user.status ) {
 			return res.status( 401 ).json({
 				ok: false,
-				msg: 'Incorrect email or password'
+				msg: 'Incorrect email or password.'
 			});
 		}
 		
-    // Check password
+    // Check if password is valid
     const validPassword = bcrypt.compareSync( password, user.password );
 
 		if ( !validPassword ) {
 			return res.status( 401 ).json({
 				ok: false,
-				msg: 'Incorrect email or password'
+				msg: 'Incorrect email or password.'
 			});
 		}
 

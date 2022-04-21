@@ -3,7 +3,16 @@ import { Request, Response } from "express";
 import User from '../../models/user.model';
 
 export const deleteUser = async( req: Request, res: Response ) => {
+	const { id } = req.params;
+	const inactivator = { status: false };
+
 	try {
+		const user = await User.findByIdAndUpdate( id, inactivator, { new: true } );
+
+		res.json({
+			ok: true,
+			user
+		});
 
 	} catch ( err ) {
 		console.log( `${ '[DELETE-USER.CONTROLLER]'.red }: Error details - ${ err }` );
