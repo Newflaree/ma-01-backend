@@ -1,5 +1,6 @@
 export interface ApiPath {		
 	auth: string;
+	users: string;
 } 
 
 export interface UserProps {

@@ -18,7 +18,7 @@ router.post( '/register',[
   check( 'email', 'The email is not valid' ).isEmail(),
   check( 'email' ).custom( emailValidation ),
 	validateFields
-] , authRegister );
+], authRegister );
 
 router.post( '/login', [
 	check( 'email', 'The email is mandatory' ).isEmail(),
