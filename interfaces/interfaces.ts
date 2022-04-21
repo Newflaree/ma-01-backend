@@ -1,6 +1,7 @@
-export interface ApiPath {		
+export interface ApiPaths {		
 	auth: string;
 	users: string;
+	categories: string;
 } 
 
 export interface UserProps {

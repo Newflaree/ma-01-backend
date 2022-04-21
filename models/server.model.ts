@@ -1,23 +1,28 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 // Interfaces
-import { ApiPath } from '../interfaces/interfaces';
+import { ApiPaths } from '../interfaces/interfaces';
 // Routes
-import { authRouter, usersRouter } from '../routes';
+import { 
+	authRouter,
+	categoriesRouter,
+	usersRouter
+} from '../routes';
 // DB
 import dbConnection from '../db/config.database';
 
 class Server {
 	private app: Application;
 	private port: string;
-	private apiPaths: ApiPath;
+	private apiPaths: ApiPaths;
 
 	constructor() {
 		this.app = express();
 		this.port = process.env.PORT || '3001';
 		this.apiPaths = {
 			auth: '/api/auth',
-			users: '/api/users'
+			users: '/api/users',
+			categories: '/api/categories'
 		}
 
 		// DB Connectcion
@@ -46,6 +51,7 @@ class Server {
 	routes() {
 		this.app.use( this.apiPaths.auth, authRouter );
 		this.app.use( this.apiPaths.users, usersRouter );
+		this.app.use( this.apiPaths.categories, categoriesRouter );
 	}
 
 	listen() {
