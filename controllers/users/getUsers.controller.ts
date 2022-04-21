@@ -5,6 +5,7 @@ import User from '../../models/user.model';
 export const getUsers = async( req: Request, res: Response ) => {
 	const { limit = 5, from = 0 } = req.query;
 	const condition = { status: true };
+
 	try {
 		const [ total, users ] = await Promise.all([
 			User.countDocuments( condition ),

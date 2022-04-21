@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
 // Helpers
-import { emailValidation } from '../helpers/db-validators/users';
+import { idValidation } from '../helpers/db-validators/users';
 // Middlewares
 import { validateFields } from '../middlewares';
 // Controller
@@ -15,6 +15,8 @@ export const router: Router = Router();
 router.get( '/', getUsers );
 
 router.get( '/:id',[
+	check( 'id', 'Not a valid id' ).isMongoId(),
+	check( 'id' ).custom( idValidation ),
 	validateFields
 ], getUser );
 
