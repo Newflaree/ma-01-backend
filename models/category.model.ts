@@ -26,4 +26,4 @@ CategorySchema.methods.toJSON = function() {
   return category;
 }
 
-export default model<CategoryProps>( 'User', CategorySchema );
+export default model<CategoryProps>( 'Category', CategorySchema );

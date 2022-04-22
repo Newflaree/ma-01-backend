@@ -1,4 +1,4 @@
-import { User } from '../models';
+import { Request } from 'express';
 
 export interface ApiPaths {		
 	auth: string;
@@ -19,4 +19,8 @@ export interface CategoryProps {
 	name: string;
 	status: boolean;
 	user: UserProps;
+}
+
+export interface UserAuthRequest extends Request {
+  user?: any;
 }

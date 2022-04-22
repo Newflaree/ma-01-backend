@@ -1,13 +1,9 @@
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 // Interfaces
-import { UserProps } from '../interfaces/interfaces';
+import { UserAuthRequest } from '../interfaces/interfaces';
 // Models
 import { User } from '../models';
-
-interface UserAuthRequest extends Request {
-  user?: any;
-}
 
 export const validateJWT = async( req: UserAuthRequest, res: Response, next: any ) => {
 	const token = req.header( 'x-token' );
