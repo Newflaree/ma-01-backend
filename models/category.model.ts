@@ -6,13 +6,20 @@ const CategorySchema = new Schema<CategoryProps>({
   name: {
     type: String,
     required: [ true, 'The name is mandatory' ],
-    unique: true
   },
+	code: {
+		type: String,
+		required: true,
+    unique: true
+	},
   status: {
     type: Boolean,
     default: true,
     required: true
   },
+	img: {
+		type: String
+	},
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',

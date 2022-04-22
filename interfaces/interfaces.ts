@@ -17,7 +17,9 @@ export interface UserProps {
 
 export interface CategoryProps {
 	name: string;
+	code: string;
 	status: boolean;
+	img?: string;
 	user: UserProps;
 }
 

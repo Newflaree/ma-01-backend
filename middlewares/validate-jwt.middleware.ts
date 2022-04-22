@@ -1,11 +1,11 @@
-import { Request, Response } from 'express';
+import { NextFunction, Response } from 'express';
 import jwt from 'jsonwebtoken';
 // Interfaces
 import { UserAuthRequest } from '../interfaces/interfaces';
 // Models
 import { User } from '../models';
 
-export const validateJWT = async( req: UserAuthRequest, res: Response, next: any ) => {
+export const validateJWT = async( req: UserAuthRequest, res: Response, next: NextFunction ) => {
 	const token = req.header( 'x-token' );
 
 	if ( !token ) {

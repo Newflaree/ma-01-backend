@@ -6,19 +6,21 @@ import { Category } from "../../models";
 
 export const createCategory = async( req: UserAuthRequest , res: Response ) => {
 	const name = req.body.name.toUpperCase();
+	const { code } = req.body;
 
 	try {
-		const categoryDB = await Category.findOne({ name });
+		const categoryDB = await Category.findOne({ code });
 
 		if ( categoryDB ) {
 			return res.status( 400 ).json({
 				ok: false,
-				msg: `Category ${ categoryDB.name } already exists.`
+				msg: `Category ${ categoryDB.code } already exists.`
 			});
 		}
 
   	const data = {
     	name,
+			code,
     	user: req.user._id
   	}
 

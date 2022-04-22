@@ -1,13 +1,23 @@
-import { Request, Response } from "express";
+import { Response } from "express";
+// Interfaces
+import { UserAuthRequest } from "../../interfaces/interfaces";
 // Models
+import { Category } from "../../models";
 
-export const updateCategory = async( req: Request, res: Response ) => {
+export const updateCategory = async( req: UserAuthRequest, res: Response ) => {
+	const { id } = req.params;
+	const { _id, status, ...data } = req.body;
+
+	data.name = data.name.toUpperCase();
+	data.user = req.user._id;
 
 	try {
+		const category = await Category.findByIdAndUpdate( id, data, { new: true } )
+			.populate( 'user', 'name' );
 
 		res.json({
 			ok: true,
-			msg: 'updateCategory'
+			category
 		});
 
 	} catch ( err ) {

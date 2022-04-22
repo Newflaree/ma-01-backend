@@ -1,13 +1,17 @@
 import { Request, Response } from "express";
 // Models
+import { Category } from "../../models";
 
 export const deleteCategory = async( req: Request, res: Response ) => {
+	const { id } = req.params;
+	const inactivator = { status: false };
 
 	try {
+		const deletedCategory = await Category.findByIdAndUpdate( id, inactivator, { new: true } );
 
 		res.json({
 			ok: true,
-			msg: 'deleteCategory'
+			deletedCategory
 		});
 
 	} catch ( err ) {
