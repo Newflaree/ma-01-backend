@@ -25,7 +25,7 @@ export const authRegister = async( req: Request, res: Response ) => {
 		// Generate JWT
 		const token = await generateJWT( user.id );
 
-		res.json({
+		res.status( 201 ).json({
 			ok: true,
 			user,
 			token

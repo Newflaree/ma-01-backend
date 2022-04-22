@@ -10,8 +10,8 @@ export const getUsers = async( req: Request, res: Response ) => {
 		const [ total, users ] = await Promise.all([
 			User.countDocuments( condition ),
 			User.find( condition )
-					.skip( Number( from ) )
-					.limit( Number( limit ) )
+				.skip( Number( from ) )
+				.limit( Number( limit ) )
 		]);
 
 		res.json({

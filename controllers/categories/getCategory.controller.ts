@@ -1,13 +1,23 @@
 import { Request, Response } from "express";
 // Models
+import { Category } from "../../models";
 
 export const getCategory = async( req: Request, res: Response ) => {
+	const { id } = req.params;
 
 	try {
+		const category = await Category.findById( id ).populate( 'user', 'name' ) || { status: false };
 		
+		if ( !category.status ) {
+			return res.status( 400 ).json({
+				ok: false,
+      	msg: 'There is no category with that id.'
+			});
+		}
+
 		res.json({
 			ok: true,
-			msg: 'getCategory'
+			category
 		});
 
 	} catch ( err ) {

@@ -19,7 +19,6 @@ export const updateUser = async( req: Request, res: Response ) => {
 			ok: true,
 			user
 		});
-		
 
 	} catch ( err ) {
 		console.log( `${ '[UPDATE-USER.CONTROLLER]'.red }: Error details - ${ err }` );
