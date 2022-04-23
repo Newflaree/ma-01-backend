@@ -2,28 +2,29 @@ import { Request } from 'express';
 
 export interface ApiPaths {		
 	auth: string;
-	users: string;
 	categories: string;
+	exercises: string;
+	users: string;
 } 
 
+export interface UserAuthRequest extends Request {
+  user?: any;
+}
+
 export interface UserProps {
-	name: string;
 	email: string;
+	name: string;
 	password: string;
 	img?: string;
 	role: string;
 	status: boolean;
 }
 
-export interface UserAuthRequest extends Request {
-  user?: any;
-}
-
 export interface CategoryProps {
-	name: string;
 	code: string;
-	status: boolean;
+	name: string;
 	img?: string;
+	status: boolean;
 	user: UserProps;
 }
 

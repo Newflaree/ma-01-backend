@@ -6,6 +6,7 @@ import { ApiPaths } from '../interfaces/interfaces';
 import { 
 	authRouter,
 	categoriesRouter,
+	exercisesRouter,
 	usersRouter
 } from '../routes';
 // DB
@@ -21,8 +22,9 @@ class Server {
 		this.port = process.env.PORT || '3001';
 		this.apiPaths = {
 			auth: '/api/auth',
-			users: '/api/users',
-			categories: '/api/categories'
+			categories: '/api/categories',
+			exercises: '/api/exercises',
+			users: '/api/users'
 		}
 
 		// DB Connectcion
@@ -50,8 +52,9 @@ class Server {
 
 	routes() {
 		this.app.use( this.apiPaths.auth, authRouter );
-		this.app.use( this.apiPaths.users, usersRouter );
 		this.app.use( this.apiPaths.categories, categoriesRouter );
+		this.app.use( this.apiPaths.exercises, exercisesRouter );
+		this.app.use( this.apiPaths.users, usersRouter );
 	}
 
 	listen() {
