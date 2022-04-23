@@ -15,6 +15,10 @@ export interface UserProps {
 	status: boolean;
 }
 
+export interface UserAuthRequest extends Request {
+  user?: any;
+}
+
 export interface CategoryProps {
 	name: string;
 	code: string;
@@ -23,6 +27,16 @@ export interface CategoryProps {
 	user: UserProps;
 }
 
-export interface UserAuthRequest extends Request {
-  user?: any;
+export interface ExerciseProps {
+	code: string;
+	status: boolean;
+	user: UserProps;
+	category: CategoryProps;
+	desc: string;
+	a: string;
+	b: string;
+	c: string;
+	d: string;
+	e: string;
+	correctAlt: string;
 }
