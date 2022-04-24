@@ -1,14 +1,27 @@
-import { Request, Response } from "express";
+import { Response } from "express";
+// Interfaces
+import { UserAuthRequest } from "../../interfaces/interfaces";
 // Models
 import { Exercise } from "../../models";
 
-export const createExercise = async( req: Request, res: Response ) => {
+export const createExercise = async( req: UserAuthRequest, res: Response ) => {
+	const { status, user, ...body } = req.body;
+	const code = body.code;
 
 	try {
+  	const data = {
+    	...body,
+    	code: code.toUpperCase(),
+    	user: req.user._id,
+  	}
 
-		res.json({
+  	const exercise = new Exercise( data );
+
+  	await exercise.save();
+
+		res.status( 201 ).json({
 			ok: true,
-			msg: 'createExercise'
+			exercise
 		});
 
 	} catch ( err ) {
