@@ -12,11 +12,10 @@ import {
 	updateUser
 } from '../controllers/users';
 
-export const router: Router = Router();
-
 /*
 	Path: /api/users
 */
+const router: Router = Router();
 router.get( '/', validateJWT, getUsers );
 
 router.get( '/:id',[
@@ -39,3 +38,5 @@ router.delete( '/:id', [
 	check( 'id' ).custom( idValidation ),
 	validateFields
 ], deleteUser );
+
+export default router;

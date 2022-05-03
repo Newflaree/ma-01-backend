@@ -4,6 +4,9 @@ import { UserAuthRequest } from "../../interfaces/interfaces";
 // Models
 import { Category } from "../../models";
 
+/*
+  PATH: '/api/categories/:id'
+*/
 export const updateCategory = async( req: UserAuthRequest, res: Response ) => {
 	const { id } = req.params;
 	const { _id, status, ...data } = req.body;

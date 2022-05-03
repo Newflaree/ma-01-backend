@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 // Models
 import { Exercise } from "../../models";
 
+/*
+  PATH: '/api/exercises/:id'
+*/
 export const getExercise = async( req: Request, res: Response ) => {
 
 	try {

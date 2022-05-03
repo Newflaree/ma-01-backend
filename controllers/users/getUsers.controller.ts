@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 // Models
 import { User } from "../../models";
 
+/*
+  PATH: '/api/users'
+*/
 export const getUsers = async( req: Request, res: Response ) => {
 	const { limit = 5, from = 0 } = req.query;
 	const condition = { status: true };

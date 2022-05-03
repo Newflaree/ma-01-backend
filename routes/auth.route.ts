@@ -7,7 +7,7 @@ import { validateFields } from '../middlewares';
 // Controller
 import { authLogin, authRegister } from '../controllers/auth';
 
-export const router: Router = Router();
+const router: Router = Router();
 
 /*
 	Path: /api/auth
@@ -25,3 +25,5 @@ router.post( '/login', [
 	check( 'password', 'The password is mandatory.' ).not().isEmpty(),
 	validateFields
 ], authLogin );
+
+export default router;

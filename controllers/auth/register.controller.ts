@@ -5,6 +5,9 @@ import { User } from "../../models";
 // JWT
 import { generateJWT } from "../../helpers/jwt/generate-jwt.helper";
 
+/*
+  PATH: '/api/auth/register'
+*/
 export const authRegister = async( req: Request, res: Response ) => {
 	const { name, email, password } = req.body;
 

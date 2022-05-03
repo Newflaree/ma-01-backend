@@ -4,6 +4,9 @@ import { UserAuthRequest } from "../../interfaces/interfaces";
 // Models
 import { Exercise } from "../../models";
 
+/*
+  PATH: '/api/exercises'
+*/
 export const createExercise = async( req: UserAuthRequest, res: Response ) => {
 	const { status, user, ...body } = req.body;
 	const code = body.code;

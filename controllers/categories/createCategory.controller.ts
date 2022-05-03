@@ -4,6 +4,9 @@ import { UserAuthRequest } from "../../interfaces/interfaces";
 // Models
 import { Category } from "../../models";
 
+/*
+  PATH: '/api/categories'
+*/
 export const createCategory = async( req: UserAuthRequest , res: Response ) => {
 	const name = req.body.name.toUpperCase();
 	const { code } = req.body;

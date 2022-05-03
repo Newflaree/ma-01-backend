@@ -1,4 +1,12 @@
-export { router as authRouter } from "./auth.route";
-export { router as categoriesRouter } from "./categories.route";
-export { router as exercisesRouter } from "./exercises.route";
-export { router as usersRouter } from "./users.route";
+import authRouter from "./auth.route";
+import categoriesRouter from "./categories.route";
+import exercisesRouter from "./exercises.route";
+import usersRouter from "./users.route";
+
+export {
+  authRouter,
+  categoriesRouter,
+  exercisesRouter,
+  usersRouter
+}
+

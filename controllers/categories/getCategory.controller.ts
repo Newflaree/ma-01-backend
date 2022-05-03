@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 // Models
 import { Category } from "../../models";
 
+/*
+  PATH: '/api/categories/:id'
+*/
 export const getCategory = async( req: Request, res: Response ) => {
 	const { id } = req.params;
 

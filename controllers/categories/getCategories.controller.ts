@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 // Models
 import { Category } from "../../models";
 
+/*
+  PATH: '/api/categories/'
+*/
 export const getCategories = async( req: Request, res: Response ) => {
 	const { limit = 5, from = 0 } = req.query;
 	const condition = { status: true };

@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 // Models
 import { Category } from "../../models";
 
+/*
+  PATH: '/api/categories/:id'
+*/
 export const deleteCategory = async( req: Request, res: Response ) => {
 	const { id } = req.params;
 	const inactivator = { status: false };

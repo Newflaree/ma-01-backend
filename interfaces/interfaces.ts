@@ -41,3 +41,13 @@ export interface ExerciseProps {
 	e: string;
 	correctAlt: string;
 }
+
+export interface StageProps {
+  code: string;
+  category: CategoryProps;
+  status: boolean;
+  user: UserProps;
+  maxPoints: number;
+  obtainedPoints: number;
+  exercises: ExerciseProps[];
+}

@@ -13,11 +13,12 @@ import { categoryIdValidator } from '../helpers/db-validators/categories';
 // Middlewares
 import { validateFields, validateJWT } from '../middlewares';
 
-export const router: Router = Router();
 
 /*
 	Path: /api/categories
 */
+const router: Router = Router();
+
 router.get( '/', validateJWT, getCategories );
 
 router.get( '/:id', [
@@ -47,3 +48,5 @@ router.delete( '/:id', [
 	check( 'id' ).custom( categoryIdValidator ),
 	validateFields
 ], deleteCategory );
+
+export default router;

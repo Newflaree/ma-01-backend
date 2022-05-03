@@ -37,8 +37,7 @@ class Server {
 
 	async dbConnect() {
 		try {
-			await dbConnection()
-			console.log( `${ '[SERVER.DATABASE]'.green }: Database ONLINE` );
+      await dbConnection()
 
 		} catch ( err ) {
 			console.log( `${ '[SERVER.DATABASE]'.red }: Error details - ${ err }` );

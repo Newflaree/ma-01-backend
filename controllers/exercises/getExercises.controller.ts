@@ -2,13 +2,23 @@ import { Request, Response } from "express";
 // Models
 import { Exercise } from "../../models";
 
+/*
+  PATH: '/api/exercises'
+*/
 export const getExercises = async( req: Request, res: Response ) => {
+  const { limit = 5, from = 0 } = req.query;
+  const exception = { status: true };
 
 	try {
+    const [ total, exercises ] = await Promise.all([
+      Exercise.countDocuments( exception ),
+      Exercise.find( exception )
+    ]);
 
 		res.json({
 			ok: true,
-			msg: 'getExercises'
+      total,
+      exercises
 		});
 
 	} catch ( err ) {

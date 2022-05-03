@@ -14,11 +14,11 @@ import { exerciseCodeValidator } from '../helpers/db-validators/exercises';
 // Middlewares
 import { validateFields, validateJWT } from '../middlewares';
 
-export const router: Router = Router();
 
 /*
 	Path: /api/exercises
 */
+const router: Router = Router();
 router.get( '/', validateJWT, getExercises );
 
 router.get( '/:id',[
@@ -51,3 +51,5 @@ router.delete( '/:id',[
 	validateJWT,
 	validateFields
 ], deleteExercise );
+
+export default router;
